@@ -5,6 +5,39 @@
     <title>Update new user stories</title>
 </head>
 <body>
-<p>alsidgaidgiVFD</p>
+<p>Update Story</p>
+<div>
+        <form action="{{url_for('route_update', id = id ) }}" method="POST">
+        <div>
+        <label for="title">Title</label>
+        <br>
+        <textarea id="title" cols="50" rows="2" name="title">{{user_story_choose['title']}}</textarea>
+        <br>
+        <label for="user_story">User story</label>
+        <br>
+        <textarea id="user_story" cols="50" rows="3" name="user_story">{{user_story_choose['user_story']}}</textarea>
+        <br>
+        <label for="acceptance_criteria">Acceptance criteria</label>
+        <br>
+        <textarea id="acceptance_criteria" cols="50" rows="3" name="acceptance_criteria">{{user_story_choose['acceptance_criteria']}}</textarea>
+        <br>
+        <label for="business_value">Business value</label>
+        <br>
+        <textarea id="business_value" cols="10" rows="1" name="business_value">{{user_story_choose['business_value']}}</textarea>
+        <br>
+        <label for="estimation">Estimation</label>
+        <br>
+        <textarea id="estimation" cols="10" rows="1" name="estimation">{{user_story_choose['estimation']}}</textarea>
+        <br>
+        <label for="status">Status choice: planning, todo, in progress, review, done</label>
+        <br>
+        <textarea id="status" cols="10" rows="1" name="status">{{user_story_choose['status']}}</textarea>
+        <br>
+        </div>
+        <br>
+        <button type="submit">Save</button>
+        </form>
+    </div>
+    <button type="button"><a href="{{url_for('index_page')}}">Main page</a></button>
 </body>
 </html>

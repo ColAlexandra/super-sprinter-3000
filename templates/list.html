@@ -1,11 +1,44 @@
-...
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>List page</title>
+        <style>
+		td {
+			border: 1px solid #999;
+            border-collapse: collapse;
+			padding: 0.1em 1em;
+
+		    }
+	    </style>
     </head>
     <body>
+    <h1>List of the stories</h1>
+    <br>
+    <button type='button'><a href="{{url_for('route_add')}}">Add user stories</a></button>
+    <br>
+    <br>
+    <div>
 
+        <table>
+            <th>{%for header in DATA_HEADER%}
+            <td>{{header}}</td>
+            {%endfor%}
+            </th>
+            {%for user_story in user_stories%}
+            <tr>
+                <th><td><a href="{{url_for('route_update', id = user_story['id'])}}"> {{user_story['id']}}</a></td></th>
+                <td>{{user_story['title']}}</td>
+                <td>{{user_story['user_story']}}</td>
+                <td>{{user_story['acceptance_criteria']}}</td>
+                <td>{{user_story['business_value']}}</td>
+                <td>{{user_story['estimation']}}</td>
+                <td>{{user_story['status']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+
+    </div>
     </body>
 </html>
